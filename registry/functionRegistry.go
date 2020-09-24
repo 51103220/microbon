@@ -18,6 +18,6 @@ func RegisterFunction(dto core.Executor) {
 	functionHolder[fmt.Sprintf("%s:%s", dto.FunctionName(), dto.GetApiVersion())] = function
 }
 
-func GetFunctions() map[string]*core.SugarContainer {
+func GetFunction() map[string]*core.SugarContainer {
 	return functionHolder
 }
