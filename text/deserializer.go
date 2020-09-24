@@ -12,3 +12,10 @@ func DeserializeRequest(w http.ResponseWriter, r *http.Request, t reflect.Type) 
 	json.NewDecoder(r.Body).Decode(&s)
 	return ptr
 }
+
+func FromJson(jsonString string, t reflect.Type) reflect.Value {
+	ptr := reflect.New(t)
+	s := ptr.Elem().Addr().Interface()
+	json.Unmarshal([]byte(jsonString), s)
+	return ptr
+}
