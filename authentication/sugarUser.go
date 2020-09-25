@@ -11,19 +11,18 @@ type SugarUser struct {
 	Roles     SugarUserFunctions
 }
 
-func (sf SugarUserFunctions) AddRole(roles ...string) SugarUserFunctions {
-	if sf == nil {
-		sf = make(map[string]string)
-	}
-	for _, role := range roles {
-		sf[role] = role
+func (user *SugarUser) AddRole(roles ...string) {
+	if user.Roles == nil {
+		user.Roles = make(map[string]string)
 	}
 
-	return sf
+	for _, role := range roles {
+		user.Roles[role] = role
+	}
 }
 
-func (sf SugarUserFunctions) HasRole(role string) bool {
-	_, hasRole := sf[role]
+func (user *SugarUser) HasRole(role string) bool {
+	_, hasRole := user.Roles[role]
 
 	return hasRole
 }

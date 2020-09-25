@@ -41,5 +41,5 @@ func Authenticate(challenge string) *SugarUser {
 }
 
 func Authorize(user *SugarUser, role string) bool {
-	return user.Roles.HasRole(role)
+	return user.HasRole(role)
 }
