@@ -9,6 +9,10 @@ func SerializeResponse(w http.ResponseWriter, r *http.Request, payload interface
 	jsonResponse(w, payload, http.StatusOK)
 }
 
+func SerializeJsonResponse(w http.ResponseWriter, statusCode int, payload interface{}) {
+	jsonResponse(w, payload, statusCode)
+}
+
 /*
 	Default behavior
 */
